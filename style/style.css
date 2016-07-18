@@ -1,0 +1,17 @@
+.card-deck{
+	display: flex !important;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.card{
+	margin-bottom: 50px !important;
+}
+
+
+.movie-poster{
+	max-height: 375px;
+	object-fit: cover;
+	object-position: center center;
+	width: 100%;
+}
