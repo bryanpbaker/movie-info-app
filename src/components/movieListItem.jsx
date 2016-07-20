@@ -9,7 +9,7 @@ const MovieListItem = ({movie}) => {
 	}
 
 	return(
-		<div className="col-xs-12 col-md-4 card text-xs-center movie-list-item">
+		<div className="col-xs-12 col-md-6 card text-xs-center movie-list-item">
 			<img className="card-img-top movie-poster" src={posterUrl} alt=""/>
 			<div className="card-block">
 				<h4 className="card-title">{movie.Title}</h4>

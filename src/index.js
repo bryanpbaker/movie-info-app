@@ -5,7 +5,7 @@ import Request from 'superagent';
 
 import SearchBar from './components/searchBar';
 import MovieList from './components/movieList';
-
+import MovieDetail from './components/movieDetail';
 
 // main app component
 class App extends Component {
@@ -13,7 +13,10 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			movies: [],
+			selectedMovie: null
+		};
 
 		this.movieSearch('batman');
 	}
@@ -24,6 +27,7 @@ class App extends Component {
 		Request.get(url).then((response) => {
 			this.setState({
 				movies: response.body.Search,
+				selectedMovie: response.body.Search[0]
 			});
 		});
 	}
@@ -35,6 +39,7 @@ class App extends Component {
 		return(
 			<div>
 				<SearchBar onSearchTermChange={movieSearch} />
+				<MovieDetail movie={this.state.selectedMovie} />
 				<MovieList movies={this.state.movies} />
 			</div>
 		)

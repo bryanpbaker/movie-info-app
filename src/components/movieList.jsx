@@ -23,7 +23,7 @@ const MovieList = (props) => {
 	});
 
 	return(
-		<div className="card-deck-wrapper movie-list">
+		<div className="card-deck-wrapper movie-list col-md-6">
 			<div className="card-deck">
 				{movies}
 			</div>
