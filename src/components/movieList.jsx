@@ -7,7 +7,7 @@ const MovieList = (props) => {
 
 	if(!props.movies){
 		return (
-			<div className="col-xs-12">
+			<div className="col-xs-12 loading">
 				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>
 		)
@@ -23,7 +23,7 @@ const MovieList = (props) => {
 	});
 
 	return(
-		<div className="card-deck-wrapper">
+		<div className="card-deck-wrapper movie-list">
 			<div className="card-deck">
 				{movies}
 			</div>
