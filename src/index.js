@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {Router, Route, Link, hashHistory} from 'react-router';
 import Request from 'superagent';
 
 import SearchBar from './components/searchBar';
@@ -66,4 +67,9 @@ class App extends Component {
 
 
 // render to Dom
-ReactDOM.render(<App/>, document.querySelector('.container'));
+ReactDOM.render((
+	<Router history={hashHistory}>
+		<Route path="/" component={App}>
+		</Route>
+	</Router>
+), document.querySelector('.container'));
