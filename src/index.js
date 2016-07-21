@@ -52,7 +52,6 @@ class App extends Component {
 
 		return(
 			<div>
-				<MovieDetail selectedMovie={this.state.selectedMovie}/>
 				<SearchBar onSearchTermChange={movieSearch} />
 				<SuggestedMovie movie={this.state.suggestedMovie} />
 				<MovieList 
@@ -69,7 +68,7 @@ class App extends Component {
 // render to Dom
 ReactDOM.render((
 	<Router history={hashHistory}>
-		<Route path="/" component={App}>
-		</Route>
+		<Route path="/" component={App} />
+		<Route path="/detail" component={MovieDetail}/>
 	</Router>
 ), document.querySelector('.container'));

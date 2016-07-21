@@ -4,13 +4,13 @@ const MovieDetail = ({selectedMovie}) => {
 
 	console.log(selectedMovie);
 
-	if(selectedMovie !== null){
-		var movieTitle = selectedMovie.Title;
-	}
+	// if(selectedMovie !== null){
+	// 	var movieTitle = selectedMovie.Title;
+	// }
 
 	return(
 		<div>
-			<h1>{movieTitle}</h1>
+			<h1>Title</h1>
 		</div>
 	)
 }
