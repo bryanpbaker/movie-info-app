@@ -13,8 +13,6 @@ const MovieList = (props) => {
 		)
 	}
 
-	console.log(props);
-
 	const movies = props.movies.map((movie) => {
 		return(
 			<MovieListItem 

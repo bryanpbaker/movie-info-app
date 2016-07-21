@@ -6,6 +6,7 @@ import Request from 'superagent';
 import SearchBar from './components/searchBar';
 import MovieList from './components/movieList';
 import SuggestedMovie from './components/suggestedMovie';
+import MovieDetail from './components/movieDetail';
 
 // main app component
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
 
 		this.state = {
 			movies: [],
+			suggestedMovie: null,
 			selectedMovie: null
 		};
 
@@ -27,7 +29,7 @@ class App extends Component {
 		Request.get(url).then((response) => {
 			this.setState({
 				movies: response.body,
-				selectedMovie: response.body.Search[0]
+				suggestedMovie: response.body.Search[0]
 			});
 		});
 	}
@@ -36,7 +38,9 @@ class App extends Component {
 		const detailUrl = 'http://www.omdbapi.com/?i=' + movieId + '&plot=full&tomatoes=true'
 
 		Request.get(detailUrl).then((response) => {
-			console.log(response);
+			this.setState({
+				selectedMovie: response.body
+			});
 		});
 	}
 
@@ -47,8 +51,9 @@ class App extends Component {
 
 		return(
 			<div>
+				<MovieDetail selectedMovie={this.state.selectedMovie}/>
 				<SearchBar onSearchTermChange={movieSearch} />
-				<SuggestedMovie movie={this.state.selectedMovie} />
+				<SuggestedMovie movie={this.state.suggestedMovie} />
 				<MovieList 
 					movies={this.state.movies.Search} 
 					getMovieDetail={(movieId) => this.movieDetail(movieId)}
