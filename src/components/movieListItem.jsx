@@ -1,6 +1,8 @@
 import React from 'react';
 
-const MovieListItem = ({movie}) => {
+const MovieListItem = ({movie, getMovieDetail}) => {
+
+	// console.log(movie);
 
 	var posterUrl = movie.Poster;	
 

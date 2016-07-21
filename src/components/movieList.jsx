@@ -13,16 +13,16 @@ const MovieList = (props) => {
 		)
 	}
 
-	const movies = _.map(props.movies, (movie) => {
+	console.log(props);
+
+	const movies = props.movies.map((movie) => {
 		return(
 			<MovieListItem 
 				key={movie.imdbID} 
 				movie={movie}
-				getMovieDetail={() => props.getMovieDetail}
+				getMovieDetail={props.getMovieDetail}
 			/>
 		)
-
-		console.log(props)
 	});
 
 	return(

@@ -26,7 +26,7 @@ class App extends Component {
 
 		Request.get(url).then((response) => {
 			this.setState({
-				movies: response.body.Search,
+				movies: response.body,
 				selectedMovie: response.body.Search[0]
 			});
 		});
@@ -50,8 +50,8 @@ class App extends Component {
 				<SearchBar onSearchTermChange={movieSearch} />
 				<SuggestedMovie movie={this.state.selectedMovie} />
 				<MovieList 
-					movies={this.state.movies} 
-					getVideoDetail={ movieId => this.movieDetail(movieId)}
+					movies={this.state.movies.Search} 
+					getMovieDetail={(movieId) => this.movieDetail(movieId)}
 				/>
 			</div>
 		)
