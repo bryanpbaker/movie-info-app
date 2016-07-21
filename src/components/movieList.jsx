@@ -18,15 +18,19 @@ const MovieList = (props) => {
 			<MovieListItem 
 				key={movie.imdbID} 
 				movie={movie}
+				getMovieDetail={() => props.getMovieDetail}
 			/>
 		)
+
+		console.log(props)
 	});
 
 	return(
-		<div className="card-deck-wrapper movie-list col-md-6">
-			<div className="card-deck">
-				{movies}
+		<div className="movie-list col-xs-12">
+			<div className="col-xs-12">
+				<h4>Or maybe one of these movies?</h4>
 			</div>
+			{movies}
 		</div>
 	)
 }

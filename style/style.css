@@ -22,20 +22,27 @@
 	width: 100%;
 }
 
-.card-deck{
-	display: flex !important;
+.suggested-movie{
+	padding-top: 30px;
+}
+
+.suggested-movie h1{
+	margin-bottom: 20px;
+}
+
+.movie-list{
+	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
+	padding-top: 80px;
 }
 
-.card{
-	margin-bottom: 50px !important;
+.movie-list-item{
+	margin-bottom: 50px;
 }
-
 
 .movie-poster{
 	max-height: 300px;
 	object-fit: contain;
-	object-position: center center;
+	object-position: left center;
 	width: 100%;
 }
