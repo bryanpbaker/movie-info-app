@@ -1,12 +1,14 @@
-import _ from 'lodash';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, Link, hashHistory} from 'react-router';
-import Request from 'superagent';
+import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 
-import SearchBar from './components/searchBar';
-import MovieList from './components/movieList';
-import SuggestedMovie from './components/suggestedMovie';
+// Layout
+import Header from './components/header';
+import Footer from './components/footer';
+
+// Pages
+import Home from './components/pages/home';
+import MovieSearch from './components/pages/movieSearch';
 import MovieDetail from './components/movieDetail';
 
 // main app component
@@ -14,50 +16,15 @@ class App extends Component {
 
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			movies: [],
-			suggestedMovie: null,
-			selectedMovie: null
-		};
-
-		this.movieSearch('batman');
 	}
-
-	movieSearch = (searchTerm) => {
-		const url = 'http://www.omdbapi.com?s=' + searchTerm ;
-
-		Request.get(url).then((response) => {
-			this.setState({
-				movies: response.body,
-				suggestedMovie: response.body.Search[0]
-			});
-		});
-	}
-
-	movieDetail = (movieId) => {
-		const detailUrl = 'http://www.omdbapi.com/?i=' + movieId + '&plot=full&tomatoes=true'
-
-		Request.get(detailUrl).then((response) => {
-			this.setState({
-				selectedMovie: response.body
-			});
-		});
-	}
-
 
 	render() {
 
-		const movieSearch = _.debounce((term) => {this.movieSearch(term)}, 300);
-
 		return(
-			<div>
-				<SearchBar onSearchTermChange={movieSearch} />
-				<SuggestedMovie movie={this.state.suggestedMovie} />
-				<MovieList 
-					movies={this.state.movies.Search} 
-					getMovieDetail={(movieId) => this.movieDetail(movieId)}
-				/>
+			<div className="app">
+				<Header />
+				{this.props.children}
+				<Footer />
 			</div>
 		)
 	};
@@ -67,8 +34,20 @@ class App extends Component {
 
 // render to Dom
 ReactDOM.render((
-	<Router history={hashHistory}>
-		<Route path="/" component={App} />
-		<Route path="/detail" component={MovieDetail}/>
+	<Router history={browserHistory}>
+		<Route path="/" component={App}>
+			<IndexRoute component={Home}></IndexRoute>
+			<Route path="search" component={MovieSearch} />
+		</Route>
 	</Router>
 ), document.querySelector('.container'));
+
+
+
+
+// <SearchBar onSearchTermChange={movieSearch} />
+// <SuggestedMovie movie={this.state.suggestedMovie} />
+// <MovieList 
+// 	movies={this.state.movies.Search} 
+// 	getMovieDetail={(movieId) => this.movieDetail(movieId)}
+// />

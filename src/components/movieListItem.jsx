@@ -11,7 +11,7 @@ const MovieListItem = ({movie, getMovieDetail}) => {
 	}
 
 	return(
-		<div className="col-xs-6 col-md-3 movie-list-item" onClick={() => getMovieDetail(movie.imdbID)}>
+		<div className="col-xs-12 col-sm-6 col-xl-3 movie-list-item" onClick={() => getMovieDetail(movie.imdbID)}>
 			<img className="movie-poster" src={posterUrl} alt=""/>
 			<div>
 				<h5>{movie.Title}</h5>
