@@ -38,6 +38,7 @@ ReactDOM.render((
 		<Route path="/" component={App}>
 			<IndexRoute component={Home}></IndexRoute>
 			<Route path="search" component={MovieSearch} />
+			<Route path=":movieId" component={MovieDetail}></Route>
 		</Route>
 	</Router>
 ), document.querySelector('.container'));
