@@ -18,7 +18,6 @@ const MovieList = (props) => {
 			<MovieListItem 
 				key={movie.imdbID} 
 				movie={movie}
-				getMovieDetail={props.getMovieDetail}
 			/>
 		)
 	});

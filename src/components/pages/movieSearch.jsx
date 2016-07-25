@@ -31,17 +31,6 @@ class MovieSearch extends Component {
 		});
 	}
 
-	movieDetail = (movieId) => {
-		const detailUrl = 'http://www.omdbapi.com/?i=' + movieId + '&plot=full&tomatoes=true'
-
-		Request.get(detailUrl).then((response) => {
-			console.log(response);
-			this.setState({
-				selectedMovie: response.body
-			});
-		});
-	}
-
 	render() {
 		const movieSearch = _.debounce((term) => {this.movieSearch(term)}, 300);
 
@@ -55,7 +44,6 @@ class MovieSearch extends Component {
 				></SuggestedMovie>
 				<MovieList
 					movies={this.state.movies}
-					getMovieDetail={ movieId => this.movieDetail(movieId) }
 				></MovieList>
 			</div>
 		)

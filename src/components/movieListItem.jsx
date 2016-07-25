@@ -8,15 +8,17 @@ const MovieListItem = ({movie, getMovieDetail}) => {
 	var posterUrl = movie.Poster;	
 
 	// Need to replace colons and spaces with hyphens
-	// var link = movie.Title.replace(/\s+/g, '-').toLowerCase();
+	var link = movie.Title.replace(/[^A-Z0-9]/ig, "-").toLowerCase();
+
+	var movieLink = link + '?id=' + movie.imdbID;
 
 	if(movie.Poster == 'N/A'){
 		var posterUrl = 'http://yepmovie.com/wp-content/uploads/2014/02/notfound.png';
 	}
 
 	return(
-		<div className="col-xs-12 col-sm-6 col-xl-3 movie-list-item" onClick={() => getMovieDetail(movie.imdbID)}>
-			<Link to={link}>
+		<div className="col-xs-12 col-sm-6 col-xl-3 movie-list-item">
+			<Link to={movieLink}>
 				<img className="movie-poster" src={posterUrl} alt=""/>
 				<div>
 					<h5>{movie.Title}</h5>
