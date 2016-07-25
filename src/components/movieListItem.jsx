@@ -1,15 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-const MovieListItem = ({movie, getMovieDetail}) => {
-
-	// console.log(movie);
+const MovieListItem = ({movie}) => {
 
 	var posterUrl = movie.Poster;	
-
-	// Need to replace colons and spaces with hyphens
 	var link = movie.Title.replace(/[^A-Z0-9]/ig, "-").toLowerCase();
-
 	var movieLink = link + '?id=' + movie.imdbID;
 
 	if(movie.Poster == 'N/A'){

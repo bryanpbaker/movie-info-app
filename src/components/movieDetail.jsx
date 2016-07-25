@@ -31,7 +31,6 @@ class MovieDetail extends Component {
 	render() {
 
 		if(this.state.currentMovie) {
-			console.log(this.state.currentMovie);
 			var movie = this.state.currentMovie;
 			var movieTitle = movie.Title;
 			var movieYear = movie.Year
