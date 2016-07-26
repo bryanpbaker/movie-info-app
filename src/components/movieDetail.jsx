@@ -64,7 +64,7 @@ class MovieDetail extends Component {
 					<img src={moviePoster} alt=""/>
 				</div>
 				<div className="meta-info">
-					<h4 className="year-rating">{movieYear} / Rated: {movieRating}</h4> 
+					<h4 className="year-rating">{movieYear} / Rated: {movieRating}</h4>
 					<small className="movie-genre">{movieGenre} / Runtime: {movieRuntime}</small>
 					<h4 className="tomatoes"><img className="tomato-img" src={tomatoImg} alt=""/> <b>{tomatoMeter}% <small>({tomatoReviews} reviews)</small></b></h4>
 					<small>
