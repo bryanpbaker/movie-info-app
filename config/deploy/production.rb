@@ -7,11 +7,12 @@ set :ssh_options, {
   forward_agent: true,
 }
 
-namespace :deploy do
-   task :npm_start do
-     on roles :all do
-     execute "cd /var/www/movieinfo.online/html/current npm start"
-     end
-   end
-   after :updated, :config_file
-end
+# namespace :deploy do
+#    task :npm_start do
+#      on roles :all do
+#      execute "rm -r #{release_path}/wp-config.php"
+#        execute ""
+#      end
+#    end
+#    after :updated, :config_file
+# end
