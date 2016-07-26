@@ -16,6 +16,10 @@ body{
 	color: #eee !important;
 }
 
+.home .fa-film{
+	font-size: 11.5em;
+}
+
 .home p{
 	width: 75%;
 }
