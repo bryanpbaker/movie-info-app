@@ -27,9 +27,11 @@ const SuggestedMovie = ({movie}) => {
 			<div className="col-xs-12">
 				<h1>Are you looking looking for {movieTitle} ?</h1>
 			</div>
-			<div className="col-sm-8 col-md-5 movie-poster-container">
-				<img className="img-responsive" src={moviePoster} alt=""/>
-			</div>
+			<Link to={movieLink} >
+				<div className="col-sm-8 col-md-5 movie-poster-container">
+					<img className="img-responsive" src={moviePoster} alt=""/>
+				</div>
+			</Link>
 			<div className="buttons">
 				<Link to={movieLink} >
 					<button className="btn btn-success">Yes!</button>
