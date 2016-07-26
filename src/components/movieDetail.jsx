@@ -18,7 +18,7 @@ class MovieDetail extends Component {
 
 
 	movieDetail = (movieId) => {
-		const detailUrl = 'http://www.omdbapi.com/?i=' + movieId + '&plot=full&tomatoes=true'
+		const detailUrl = 'http://www.omdbapi.com/?i=' + movieId + '&plot=full&tomatoes=true&type=movie'
 
 		Request.get(detailUrl).then((response) => {
 			this.setState({

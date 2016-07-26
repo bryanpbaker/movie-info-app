@@ -15,14 +15,14 @@ class MovieSearch extends Component {
 			movies: [],
 			suggestedMovie: null,
 			selectedMovie: null,
-			defaultTerm: 'The Godfather'
+			defaultTerm: 'Jaws'
 		};
 
 		this.movieSearch(this.state.defaultTerm);
 	}
 
 	movieSearch = (searchTerm) => {
-		const url = 'http://www.omdbapi.com?s=' + searchTerm ;
+		const url = 'http://www.omdbapi.com?s=' + searchTerm + '&type=movie';
 
 		Request.get(url).then((response) => {
 			this.setState({
