@@ -14,10 +14,11 @@ class MovieSearch extends Component {
 		this.state = {
 			movies: [],
 			suggestedMovie: null,
-			selectedMovie: null
+			selectedMovie: null,
+			defaultTerm: 'The Godfather'
 		};
 
-		this.movieSearch('batman');
+		this.movieSearch(this.state.defaultTerm);
 	}
 
 	movieSearch = (searchTerm) => {
@@ -38,6 +39,7 @@ class MovieSearch extends Component {
 			<div>
 				<SearchBar
 					onSearchTermChange={movieSearch}
+					defaultTerm={this.state.defaultTerm}
 				></SearchBar>
 				<SuggestedMovie
 					movie={this.state.suggestedMovie}

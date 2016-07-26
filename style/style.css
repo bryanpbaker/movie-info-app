@@ -1,3 +1,25 @@
+body{
+	padding-top: 25px;
+}
+
+.header{
+	margin-bottom: 40px;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.nav-item a{
+	color: white !important;
+}
+
+.nav-item a:hover{
+	color: #eee !important;
+}
+
+.home p{
+	width: 75%;
+}
+
 .search-bar{
 	padding: 15px;
 	width: 100%;
@@ -28,6 +50,10 @@
 
 .suggested-movie h1{
 	margin-bottom: 20px;
+}
+
+.suggested-movie .btn-danger{
+	margin-left: 10px;
 }
 
 .movie-list{
@@ -76,4 +102,10 @@
 	display: block;
 	font-weight: bold;
 	margin-bottom: 5px;
+}
+
+.footer{
+	margin-top: 50px;
+	padding-bottom: 30px;
+	padding-left: 0 !important;
 }
